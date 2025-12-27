@@ -1,0 +1,45 @@
+server:
+  port: 8762
+
+spring:
+  application:
+    name: apigateway-service
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+          strip-prefix: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+#server:
+#  port: 8762
+#
+#spring:
+#  application:
+#    name: apigateway-service
+#
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+#          # strip-prefix = true → чтобы /store-service/api/stores стал /api/stores
+#          # можно отключить если не нужно
+#          # strip-prefix: true
+#      server:
+#        webflux:
+#          discovery:
+#            locator:
+#              lower-case-service-id: true
+#
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka

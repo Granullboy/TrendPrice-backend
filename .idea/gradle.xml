@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/apigateway-service" name="apigateway-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/apigateway-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/eureka-service" name="eureka-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/eureka-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/price-service" name="price-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/price-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/product-service" name="product-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/product-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/store-service" name="store-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/store-service" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/apigateway-service" />
+            <option value="$PROJECT_DIR$/eureka-service" />
+            <option value="$PROJECT_DIR$/price-service" />
+            <option value="$PROJECT_DIR$/product-service" />
+            <option value="$PROJECT_DIR$/store-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/apigateway-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/apigateway-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/eureka-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/eureka-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/price-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/price-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/product-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/product-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/store-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/store-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
