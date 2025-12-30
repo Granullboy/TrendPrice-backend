@@ -27,13 +27,11 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
-    public List<Product> filter(String title, String category, String brand, Double minPrice, Double maxPrice, String type ) {
+    public List<Product> filter(String title, String category, String brand, String type ) {
         Specification<Product> specification = Specification
                 .allOf(ProductSpecification.hasTitle(title))
                 .and(ProductSpecification.hasCategory(category))
                 .and(ProductSpecification.hasBrand(brand))
-                .and(ProductSpecification.hasPriceHigherThan(minPrice))
-                .and(ProductSpecification.hasPriceLowerThan(maxPrice))
                 .and(ProductSpecification.hasType(type));
 
         return productRepository.findAll(specification);

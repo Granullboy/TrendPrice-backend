@@ -14,6 +14,8 @@ import java.util.UUID;
 @Table(
         name = "prices",
         indexes = {
+                @Index(name = "idx_prices_store_city_time", columnList = "store_id,city,time"),
+                @Index(name = "idx_prices_product_city_time", columnList = "product_id,city,time"),
                 @Index(name = "idx_prices_store_product_time", columnList = "product_id,store_id,time"),
                 @Index(name = "idx_prices_product_time", columnList = "product_id,time"),
                 @Index(name = "idx_prices_store_time", columnList = "store_id,time"),
@@ -43,6 +45,12 @@ public class Price {
 
     @Column(name = "currency")
     private String currency;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "final_price", updatable = false, precision = 19, scale = 4)
+    private BigDecimal finalPrice;
 
     @Column(name = "time", nullable = false)
     private Instant time;

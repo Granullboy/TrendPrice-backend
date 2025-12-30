@@ -32,12 +32,10 @@ public class ProductController {
             @RequestParam(required = false) String title,
             @RequestParam(required = false) String category,
             @RequestParam(required = false) String brand,
-            @RequestParam(required = false) Double minPrice,
-            @RequestParam(required = false) Double maxPrice,
             @RequestParam(required = false) String type
     ) {
         try {
-            List<Product> products = productService.filter(title, category, brand, minPrice, maxPrice, type);
+            List<Product> products = productService.filter(title, category, brand, type);
             return (products.isEmpty()) ? ResponseEntity.noContent().build() : ResponseEntity.ok(products);
         }
         catch (Exception e) {
