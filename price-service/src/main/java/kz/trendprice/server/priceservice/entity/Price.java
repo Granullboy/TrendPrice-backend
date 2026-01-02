@@ -15,6 +15,7 @@ import java.util.UUID;
         name = "prices",
         indexes = {
                 @Index(name = "idx_prices_store_city_time", columnList = "store_id,city,time"),
+                @Index(name = "idx_prices_product_price_city_time", columnList = "product_id,final_price,city,time"),
                 @Index(name = "idx_prices_product_city_time", columnList = "product_id,city,time"),
                 @Index(name = "idx_prices_store_product_time", columnList = "product_id,store_id,time"),
                 @Index(name = "idx_prices_product_time", columnList = "product_id,time"),

@@ -27,6 +27,14 @@ public class ProductController {
         return (product == null) ? ResponseEntity.noContent().build() : ResponseEntity.ok(product);
     }
 
+    @PutMapping("/add_category/{product_id}")
+    public ResponseEntity<Product> addCategory(@PathVariable UUID product_id, @RequestBody List<UUID> category_ids) {
+        System.out.println("category_ids: " + category_ids);
+        Product product = productService.addCategory(product_id, category_ids);
+        return (product == null) ? ResponseEntity.noContent().build() : ResponseEntity.ok(product);
+    }
+
+
     @GetMapping("/search")
     public ResponseEntity<List<Product>> filter(
             @RequestParam(required = false) String title,
@@ -47,12 +55,6 @@ public class ProductController {
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);
         return (createdProduct == null) ? ResponseEntity.noContent().build() : ResponseEntity.ok(createdProduct);
-    }
-
-    @PostMapping("/{id}")
-    public ResponseEntity<Product> addCategory(@PathVariable UUID id, @RequestBody List<UUID> uuids) {
-        Product product = productService.addCategory(id, uuids);
-        return (product == null) ? ResponseEntity.noContent().build() : ResponseEntity.ok(product);
     }
 
     @PutMapping("/{id}")

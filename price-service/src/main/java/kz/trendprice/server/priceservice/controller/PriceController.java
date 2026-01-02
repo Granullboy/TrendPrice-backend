@@ -27,21 +27,35 @@ public class PriceController {
     }
 
     @GetMapping("/store/{store_id}")
-    public ResponseEntity<List<Price>> getPricesByStoreId(@PathVariable UUID storeId) {
-        List<Price> prices = priceService.getPricesByStoreId(storeId);
+    public ResponseEntity<List<Price>> getPricesByStoreId(@PathVariable UUID store_id) {
+        List<Price> prices = priceService.getPricesByStoreId(store_id);
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/product/{product_id}")
-    public ResponseEntity<List<Price>> getPricesByProductId(@PathVariable UUID productId) {
-        List<Price> prices = priceService.getPricesByProductId(productId);
+    public ResponseEntity<List<Price>> getPricesByProductId(@PathVariable UUID product_id) {
+        List<Price> prices = priceService.getPricesByProductId(product_id);
+        return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/product/{product_id}/1")
+    public ResponseEntity<List<Price>> getPricesByProductIdLastWeek(@PathVariable UUID product_id) {
+        List<Price> prices = priceService.getPricesByProductIdLastWeek(product_id);
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/store/{store_id}/product/{product_id}")
-    public ResponseEntity<List<Price>> getPricesByStoreIdAndProductId(@PathVariable UUID storeId, @PathVariable UUID productId) {
-        List<Price> prices = priceService.getPricesByStoreIdAndProductId(storeId, productId);
+    public ResponseEntity<List<Price>> getPricesByStoreIdAndProductId(@PathVariable UUID store_id, @PathVariable UUID product_id) {
+        List<Price> prices = priceService.getPricesByStoreIdAndProductId(store_id, product_id);
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/best/{product_id}/{city}")
+    public ResponseEntity<Price> getBestPriceByProductIdAndCity(@PathVariable UUID product_id, @PathVariable String city) {
+        System.out.println("productId" + product_id);
+        System.out.println("city" + city);
+        Price price = priceService.getBestPriceByProductIdAndCity(product_id, city);
+        return (price != null) ? ResponseEntity.ok(price) : ResponseEntity.notFound().build();
     }
 
     @PostMapping
@@ -52,6 +66,7 @@ public class PriceController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Price> updatePrice(@PathVariable UUID id, @RequestBody Price price) {
+        System.out.println(price);
         try {
             Price updatedPrice = priceService.updatePrice(id, price);
             return (updatedPrice != null) ? ResponseEntity.ok(updatedPrice) : ResponseEntity.notFound().build();

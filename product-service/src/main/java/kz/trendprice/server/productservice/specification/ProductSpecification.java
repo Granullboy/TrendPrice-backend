@@ -15,7 +15,7 @@ public class ProductSpecification {
     public static Specification<Product> hasCategory(String category) {
         return ((root, query, criteriaBuilder) ->
                 category == null ? null : criteriaBuilder.like(
-                        criteriaBuilder.lower(root.join("category").get("title")), "%" + category.toLowerCase() + "%"
+                        criteriaBuilder.lower(root.join("category").get("title")), category.toLowerCase()
                 )
         );
     }
@@ -24,20 +24,6 @@ public class ProductSpecification {
         return ((root, query, criteriaBuilder) ->
                 brand == null ? null : criteriaBuilder.like(
                         criteriaBuilder.lower(root.get("brand")), "%" + brand.toLowerCase() + "%"
-                )
-        );
-    }
-
-    public static Specification<Product> hasPriceHigherThan(Double price) {
-        return ((root, query, criteriaBuilder) ->
-                price == null ? null : criteriaBuilder.greaterThan(root.get("price"), price
-                )
-        );
-    }
-
-    public static Specification<Product> hasPriceLowerThan(Double price) {
-        return ((root, query, criteriaBuilder) ->
-                price == null ? null : criteriaBuilder.lessThan(root.get("price"), price
                 )
         );
     }

@@ -29,8 +29,18 @@ public class PriceService {
         return priceRepository.findAllByProductIdOrderByTimeDesc(product_id);
     }
 
+    public List<Price> getPricesByProductIdLastWeek(UUID product_id) {
+        return priceRepository.findAllByProductIdLastWeekOrder(product_id);
+    }
+
     public List<Price> getPricesByStoreIdAndProductId(UUID store_id, UUID product_id) {
         return priceRepository.findAllByProductIdAndStoreIdOrderByTimeDesc(product_id, store_id);
+    }
+
+    public Price getBestPriceByProductIdAndCity(UUID product_id, String city) {
+        Price bestPrice = priceRepository.findBestPriceByProductIdAndCity(product_id, city);
+        System.out.println(bestPrice);
+        return bestPrice;
     }
 
     public Price createPrice(Price price) {

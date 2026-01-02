@@ -1,5 +1,6 @@
 package kz.trendprice.server.productservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -26,6 +27,7 @@ public class Category {
     @Column(name = "title", nullable = false, length = 100, unique = true)
     private String title;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "categories")
     private List<Product> products;
 
