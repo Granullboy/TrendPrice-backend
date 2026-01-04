@@ -29,7 +29,6 @@ public class ProductController {
 
     @PutMapping("/add_category/{product_id}")
     public ResponseEntity<Product> addCategory(@PathVariable UUID product_id, @RequestBody List<UUID> category_ids) {
-        System.out.println("category_ids: " + category_ids);
         Product product = productService.addCategory(product_id, category_ids);
         return (product == null) ? ResponseEntity.noContent().build() : ResponseEntity.ok(product);
     }

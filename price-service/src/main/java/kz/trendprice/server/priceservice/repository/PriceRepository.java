@@ -18,7 +18,7 @@ public interface PriceRepository extends JpaRepository<Price, UUID> {
         FROM prices p
         WHERE p.product_id = :productId
           AND lower(p.city) = lower(:city)
-        ORDER BY p.time DESC, p.final_price ASC
+        ORDER BY p.time DESC, p.price_per_unit ASC
         LIMIT 1
     """, nativeQuery = true)
     Price findBestPriceByProductIdAndCity(@Param("productId") UUID product_id, @Param("city") String city);

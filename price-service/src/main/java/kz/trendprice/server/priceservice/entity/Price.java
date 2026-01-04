@@ -50,6 +50,9 @@ public class Price {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "discount")
+    private BigDecimal discount;
+
     @Column(name = "final_price", updatable = false, precision = 19, scale = 4)
     private BigDecimal finalPrice;
 

@@ -38,8 +38,8 @@ public class PriceController {
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
     }
 
-    @GetMapping("/product/{product_id}/1")
-    public ResponseEntity<List<Price>> getPricesByProductIdLastWeek(@PathVariable UUID product_id) {
+    @GetMapping("/product/{product_id}/days/{days_amount}")
+    public ResponseEntity<List<Price>> getPricesByProductIdLastWeek(@PathVariable UUID product_id, @PathVariable int days_amount) {
         List<Price> prices = priceService.getPricesByProductIdLastWeek(product_id);
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
     }
