@@ -29,8 +29,11 @@ public class PriceService {
         return priceRepository.findAllByProductIdOrderByTimeDesc(product_id);
     }
 
-    public List<Price> getPricesByProductIdLastWeek(UUID product_id) {
-        return priceRepository.findAllByProductIdLastWeekOrder(product_id);
+    public List<Price> getPricesByProductIdLastDayAmount(UUID product_id, Integer days_amount) {
+        System.out.println("product_id: " + product_id + "\ndays_amount: " + days_amount);
+        java.time.Instant cutoff = java.time.Instant.now()
+                .minus(days_amount, java.time.temporal.ChronoUnit.DAYS);
+        return priceRepository.findAllByProductIdLastWeekOrder(product_id, cutoff);
     }
 
     public List<Price> getPricesByStoreIdAndProductId(UUID store_id, UUID product_id) {

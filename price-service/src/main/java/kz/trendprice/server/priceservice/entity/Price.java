@@ -1,5 +1,6 @@
 package kz.trendprice.server.priceservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -27,43 +28,56 @@ import java.util.UUID;
 public class Price {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @JsonView(Views.Public.class)
     private UUID id;
 
     @Column(name = "product_id", nullable = false)
+    @JsonView(Views.Public.class)
     private UUID productId;
 
     @Column(name = "store_id", nullable = false)
+    @JsonView(Views.Public.class)
     private UUID storeId;
 
     @Column(name = "unit_amount", nullable = false, precision = 19, scale = 4)
+    @JsonView(Views.Internal.class)
     private BigDecimal unitAmount;
 
     @Column(name = "unit", nullable = false)
+    @JsonView(Views.Internal.class)
     private String unit;
 
     @Column(name = "price_per_unit", precision = 19, scale = 4)
+    @JsonView(Views.Internal.class)
     private BigDecimal pricePerUnit;
 
     @Column(name = "currency")
+    @JsonView(Views.Internal.class)
     private String currency;
 
     @Column(name = "city")
+    @JsonView(Views.Internal.class)
     private String city;
 
     @Column(name = "discount")
+    @JsonView(Views.Internal.class)
     private BigDecimal discount;
 
     @Column(name = "final_price", updatable = false, precision = 19, scale = 4)
+    @JsonView(Views.Public.class)
     private BigDecimal finalPrice;
 
     @Column(name = "time", nullable = false)
+    @JsonView(Views.Public.class)
     private Instant time;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
+    @JsonView(Views.Public.class)
     private Date createdAt;
 
     @UpdateTimestamp
     @Column(name = "updated_at")
+    @JsonView(Views.Public.class)
     private Date updatedAt;
 }

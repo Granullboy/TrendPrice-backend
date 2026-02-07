@@ -1,5 +1,6 @@
 server:
   port: 8762
+  forward-headers-strategy: framework
 
 spring:
   application:
@@ -30,6 +31,10 @@ spring:
           enabled: true
           lower-case-service-id: true
           strip-prefix: true
+      server:
+        webflux:
+          trusted-proxies: ".*"
+
 
 eureka:
   client:
@@ -38,7 +43,7 @@ eureka:
 
 springdoc:
   swagger-ui:
-    path: /swagger-ui.html
+    path: /
     urls:
       - name: product-service
         url: /product-service/v3/api-docs
@@ -46,4 +51,6 @@ springdoc:
         url: /store-service/v3/api-docs
       - name: price-service
         url: /price-service/v3/api-docs
-    urls-primary-name: product-service
+      - name: catalog-service
+        url: /catalog-service/v3/api-docs
+    urls-primary-name: catalog-service

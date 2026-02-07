@@ -1,6 +1,8 @@
 package kz.trendprice.server.priceservice.controller;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import kz.trendprice.server.priceservice.entity.Price;
+import kz.trendprice.server.priceservice.entity.Views;
 import kz.trendprice.server.priceservice.service.PriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,36 +23,44 @@ public class PriceController {
     }
 
     @GetMapping("/{id}")
+    @JsonView(Views.Internal.class)
     public ResponseEntity<Price> getPrice(@PathVariable UUID id) {
         Price price = priceService.getPrice(id);
         return (price != null) ? ResponseEntity.ok(price) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/store/{store_id}")
+    @JsonView(Views.Internal.class)
     public ResponseEntity<List<Price>> getPricesByStoreId(@PathVariable UUID store_id) {
         List<Price> prices = priceService.getPricesByStoreId(store_id);
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/product/{product_id}")
+    @JsonView(Views.Internal.class)
     public ResponseEntity<List<Price>> getPricesByProductId(@PathVariable UUID product_id) {
         List<Price> prices = priceService.getPricesByProductId(product_id);
-        return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
+        System.out.println(prices.isEmpty());
+        return ResponseEntity.ok(prices);
     }
 
     @GetMapping("/product/{product_id}/days/{days_amount}")
+    @JsonView(Views.Internal.class)
     public ResponseEntity<List<Price>> getPricesByProductIdLastWeek(@PathVariable UUID product_id, @PathVariable int days_amount) {
-        List<Price> prices = priceService.getPricesByProductIdLastWeek(product_id);
-        return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
+        List<Price> prices = priceService.getPricesByProductIdLastDayAmount(product_id, days_amount);
+        System.out.println(prices.isEmpty());
+        return ResponseEntity.ok(prices);
     }
 
     @GetMapping("/store/{store_id}/product/{product_id}")
+    @JsonView(Views.Internal.class)
     public ResponseEntity<List<Price>> getPricesByStoreIdAndProductId(@PathVariable UUID store_id, @PathVariable UUID product_id) {
         List<Price> prices = priceService.getPricesByStoreIdAndProductId(store_id, product_id);
         return (prices != null) ? ResponseEntity.ok(prices) : ResponseEntity.notFound().build();
     }
 
     @GetMapping("/best/{product_id}/{city}")
+    @JsonView(Views.Internal.class)
     public ResponseEntity<Price> getBestPriceByProductIdAndCity(@PathVariable UUID product_id, @PathVariable String city) {
         System.out.println("productId" + product_id);
         System.out.println("city" + city);

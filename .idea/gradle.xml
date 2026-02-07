@@ -12,6 +12,11 @@
                   <project path="$PROJECT_DIR$/apigateway-service" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/catalog-bff-service" name="catalog-bff-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/catalog-bff-service" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/eureka-service" name="eureka-service">
                 <projects>
                   <project path="$PROJECT_DIR$/eureka-service" />
@@ -41,6 +46,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/apigateway-service" />
+            <option value="$PROJECT_DIR$/catalog-bff-service" />
             <option value="$PROJECT_DIR$/eureka-service" />
             <option value="$PROJECT_DIR$/price-service" />
             <option value="$PROJECT_DIR$/product-service" />
@@ -53,6 +59,22 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/apigateway-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/catalog-bff-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/catalog-bff-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/config-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/config-service" />
           </set>
         </option>
       </GradleProjectSettings>

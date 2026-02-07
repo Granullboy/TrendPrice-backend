@@ -23,12 +23,12 @@ public interface PriceRepository extends JpaRepository<Price, UUID> {
     """, nativeQuery = true)
     Price findBestPriceByProductIdAndCity(@Param("productId") UUID product_id, @Param("city") String city);
 
-    @Query("""
-       SELECT p
-       FROM Price p
-       WHERE p.productId = :productId
+    @Query(value = """
+       SELECT p.*
+       FROM prices p
+       WHERE p.product_id = :productId
          AND p.time >= :cutoff
        ORDER BY p.time DESC
-    """)
-    List<Price> findAllByProductIdLastWeekOrder (UUID product_id);
+    """, nativeQuery = true)
+    List<Price> findAllByProductIdLastWeekOrder (@Param("productId") UUID product_id, @Param("cutoff") java.time.Instant cutoff);
 }
