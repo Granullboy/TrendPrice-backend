@@ -68,4 +68,8 @@ public class MainService {
                     return new ProductPriceViewWithCategory(product, categories, t.getT2(), t.getT3());
                 });
     }
+
+    public Mono<List<ProductDto>> postProducts(List<ProductDto> products) {
+        return Mono.just(products);
+    }
 }

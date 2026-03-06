@@ -60,11 +60,12 @@ public class ProductController {
     public ResponseEntity<Product> updateProduct(@PathVariable UUID id, @RequestBody Product product) {
         try {
             Product product1 = productService.updateProduct(id, product);
-            return product1 != null ? ResponseEntity.ok(product1) : ResponseEntity.notFound().build();
+            return (product1 == null) ? ResponseEntity.noContent().build() : ResponseEntity.ok(product1);
         }
         catch (Exception e) {
             return ResponseEntity.badRequest().body(product);
-        }    }
+        }
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Product> deleteProduct(@PathVariable UUID id) {

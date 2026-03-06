@@ -15,7 +15,7 @@ public class ProductSpecification {
     public static Specification<Product> hasCategory(String category) {
         return ((root, query, criteriaBuilder) ->
                 category == null ? null : criteriaBuilder.like(
-                        criteriaBuilder.lower(root.join("category").get("title")), category.toLowerCase()
+                        criteriaBuilder.lower(root.join("categories").get("title")), category.toLowerCase()
                 )
         );
     }
@@ -23,7 +23,7 @@ public class ProductSpecification {
     public static Specification<Product> hasBrand(String brand) {
         return ((root, query, criteriaBuilder) ->
                 brand == null ? null : criteriaBuilder.like(
-                        criteriaBuilder.lower(root.get("brand")), "%" + brand.toLowerCase() + "%"
+                        criteriaBuilder.lower(root.join("brand").get("title")), "%" + brand.toLowerCase() + "%"
                 )
         );
     }

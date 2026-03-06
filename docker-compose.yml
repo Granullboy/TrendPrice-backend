@@ -1,0 +1,94 @@
+services:
+  postgres:
+    image: postgres:16.2
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d
+
+  eureka:
+    build:
+      context: ./eureka-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+    ports:
+      - "8761:8761"
+
+  apigateway:
+    build:
+      context: ./apigateway-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+    ports:
+      - "8762:8762"
+    depends_on:
+      - eureka
+
+  price-service:
+    build:
+      context: ./price-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DATASOURCE_URL: jdbc:postgresql://postgres:5432/price_service
+    depends_on:
+      - postgres
+      - eureka
+
+  product-service:
+    build:
+      context: ./product-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DATASOURCE_URL: jdbc:postgresql://postgres:5432/product_service
+    depends_on:
+      - postgres
+      - eureka
+
+  store-service:
+    build:
+      context: ./store-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DATASOURCE_URL: jdbc:postgresql://postgres:5432/store_service
+    depends_on:
+      - postgres
+      - eureka
+
+  parser-service:
+    build:
+      context: ./parser-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DATASOURCE_URL: jdbc:postgresql://postgres:5432/parser_service
+    depends_on:
+      - postgres
+      - eureka
+      - price-service
+      - product-service
+      - store-service
+
+  catalog-service:
+    build:
+      context: ./catalog-bff-service
+    environment:
+      SPRING_PROFILES_ACTIVE: compose
+    depends_on:
+      - eureka
+      - price-service
+      - product-service
+      - store-service
+
+volumes:
+  pgdata:

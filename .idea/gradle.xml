@@ -22,6 +22,11 @@
                   <project path="$PROJECT_DIR$/eureka-service" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/parser-service" name="parser-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/parser-service" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/price-service" name="price-service">
                 <projects>
                   <project path="$PROJECT_DIR$/price-service" />
@@ -48,6 +53,7 @@
             <option value="$PROJECT_DIR$/apigateway-service" />
             <option value="$PROJECT_DIR$/catalog-bff-service" />
             <option value="$PROJECT_DIR$/eureka-service" />
+            <option value="$PROJECT_DIR$/parser-service" />
             <option value="$PROJECT_DIR$/price-service" />
             <option value="$PROJECT_DIR$/product-service" />
             <option value="$PROJECT_DIR$/store-service" />
@@ -83,6 +89,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/eureka-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/parser-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/parser-service" />
           </set>
         </option>
       </GradleProjectSettings>

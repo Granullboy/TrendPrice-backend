@@ -34,9 +34,10 @@ public class Product {
     @JsonView(Views.Public.class)
     private String type;
 
-    @Column(name = "brand")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id")
     @JsonView(Views.Public.class)
-    private String brand;
+    private Brand brand;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(

@@ -26,10 +26,9 @@ public class MainController {
         return ResponseEntity.ok(mainService.isAlive());
     }
 
-    @GetMapping("/product/{productId}/prices/{dayAmount}")
+    @GetMapping("/products/{productId}/prices/{dayAmount}")
     public Mono<ProductPriceViewWithCategory> getPrice(@PathVariable String productId, @PathVariable int dayAmount) {
         System.out.println("productId: " + productId + "\ndayAmount: " + dayAmount);
         return mainService.getProductPriceViewWithCategory(productId, dayAmount);
     }
-
 }

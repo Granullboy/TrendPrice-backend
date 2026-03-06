@@ -20,7 +20,13 @@ public class CategoryService {
     public Category saveCategory(Category category) { return categoryRepository.save(category); }
 
     public Category updateCategory(UUID id, Category category) {
-        return categoryRepository.findById(id).map(category1 -> categoryRepository.save(category1)).orElse(null);
+        Category old = categoryRepository.findById(id).orElse(null);
+        if (old == null) return null;
+
+        if(category.getTitle() != null) old.setTitle(category.getTitle());
+        if(category.getProducts() != null) old.setProducts(category.getProducts());
+
+        return categoryRepository.save(old);
     }
 
     public void deleteCategory(UUID id) {
