@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY gradlew /app/gradlew
 COPY gradle /app/gradle
-COPY build.gradle settings.gradle gradle.properties /app/
+COPY build.gradle settings.gradle /app/
 RUN ./gradlew dependencies --no-daemon
 
 COPY src /app/src
