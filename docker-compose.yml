@@ -1,5 +1,6 @@
 services:
   postgres:
+    container_name: trendprice-postgres
     image: postgres:16.2
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
@@ -11,6 +12,7 @@ services:
       - ./postgres/init:/docker-entrypoint-initdb.d
 
   eureka:
+    container_name: trendprice-eureka
     build:
       context: ./eureka-service
     environment:
@@ -19,6 +21,7 @@ services:
       - "8761:8761"
 
   apigateway:
+    container_name: trendprice-apigateway
     build:
       context: ./apigateway-service
     environment:
@@ -29,6 +32,7 @@ services:
       - eureka
 
   price-service:
+    container_name: trendprice-price-service
     build:
       context: ./price-service
     environment:
@@ -41,6 +45,7 @@ services:
       - eureka
 
   product-service:
+    container_name: trendprice-product-service
     build:
       context: ./product-service
     environment:
@@ -53,6 +58,7 @@ services:
       - eureka
 
   store-service:
+    container_name: trendprice-store-service
     build:
       context: ./store-service
     environment:
@@ -65,6 +71,7 @@ services:
       - eureka
 
   parser-service:
+    container_name: trendprice-parser-service
     build:
       context: ./parser-service
     environment:
