@@ -1,5 +1,15 @@
+server:
+  port: 8080
+
 spring:
   datasource:
     url: ${DATASOURCE_URL}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka:8761/eureka
+  instance:
+    prefer-ip-address: true
