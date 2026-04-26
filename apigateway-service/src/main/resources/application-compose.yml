@@ -6,6 +6,12 @@ spring:
     url: ${DATASOURCE_URL}
     username: ${POSTGRES_USER}
     password: ${POSTGRES_PASSWORD}
+  ssl:
+    bundle:
+      jks:
+        gateway:
+          keystore:
+            password: ${SSL_PASSWORD}
 
 eureka:
   client:

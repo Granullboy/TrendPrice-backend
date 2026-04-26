@@ -16,7 +16,7 @@ import java.util.UUID;
                 @Index(name = "idx_order_title", columnList = "title")
         }
 )
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor @ToString
 public class Brand {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

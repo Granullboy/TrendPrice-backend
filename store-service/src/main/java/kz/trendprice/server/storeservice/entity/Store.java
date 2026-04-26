@@ -16,7 +16,7 @@ import java.util.UUID;
                 @Index(name = "idx_order_store_id", columnList = "store_id") //indexing stores by id
         }
 )
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor @ToString
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

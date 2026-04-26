@@ -37,9 +37,24 @@
                   <project path="$PROJECT_DIR$/product-service" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/receipt-service" name="receipt-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/receipt-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/security-starter" name="security-starter">
+                <projects>
+                  <project path="$PROJECT_DIR$/security-starter" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/store-service" name="store-service">
                 <projects>
                   <project path="$PROJECT_DIR$/store-service" />
+                </projects>
+              </build>
+              <build path="$PROJECT_DIR$/user-service" name="user-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/user-service" />
                 </projects>
               </build>
             </builds>
@@ -56,7 +71,10 @@
             <option value="$PROJECT_DIR$/parser-service" />
             <option value="$PROJECT_DIR$/price-service" />
             <option value="$PROJECT_DIR$/product-service" />
+            <option value="$PROJECT_DIR$/receipt-service" />
+            <option value="$PROJECT_DIR$/security-starter" />
             <option value="$PROJECT_DIR$/store-service" />
+            <option value="$PROJECT_DIR$/user-service" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -69,10 +87,22 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <compositeConfiguration>
+          <compositeBuild compositeDefinitionSource="SCRIPT">
+            <builds>
+              <build path="$PROJECT_DIR$/security-starter" name="security-starter">
+                <projects>
+                  <project path="$PROJECT_DIR$/security-starter" />
+                </projects>
+              </build>
+            </builds>
+          </compositeBuild>
+        </compositeConfiguration>
         <option name="externalProjectPath" value="$PROJECT_DIR$/catalog-bff-service" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/catalog-bff-service" />
+            <option value="$PROJECT_DIR$/security-starter" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -113,6 +143,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/product-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/receipt-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/receipt-service" />
           </set>
         </option>
       </GradleProjectSettings>

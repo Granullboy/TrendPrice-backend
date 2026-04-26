@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+}
+
+group = 'kz.trendprice.server'
+version = '1.0.0'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    api platform('org.springframework.boot:spring-boot-dependencies:3.5.7')
+
+    api 'org.springframework:spring-context'
+    api 'org.springframework.security:spring-security-core'
+    api 'org.springframework.security:spring-security-web'
+    api 'com.fasterxml.jackson.core:jackson-databind'
+
+    compileOnly 'jakarta.servlet:jakarta.servlet-api'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}

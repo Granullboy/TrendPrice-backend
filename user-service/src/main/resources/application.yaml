@@ -1,0 +1,48 @@
+server:
+  port: 8763
+  forward-headers-strategy: framework
+
+spring:
+  application:
+    name: user-service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_service
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration-ms: 86400000
+
+app:
+  base-url: ${APP_BASE_URL}
+  admin:
+    username: ${ADMIN_USERNAME}
+    email: ${ADMIN_EMAIL}
+    password: ${ADMIN_PASSWORD}
+    create-on-startup: true
+

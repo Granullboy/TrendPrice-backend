@@ -18,7 +18,7 @@ import java.util.UUID;
                 @Index(name = "idx_order_product_id", columnList = "product_id")
         }
 )
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor @ToString
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -50,6 +50,9 @@ public class Product {
 
     @Column(name = "barcode")
     private String barcode;
+    
+    @Column(name = "is_checked")
+    private boolean isChecked = false;
 
     @CreationTimestamp
     @Column(name = "created_at")

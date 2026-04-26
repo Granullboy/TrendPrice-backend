@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Entity
 @Table(name="store_statuses")
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor @ToString
 public class StoreStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

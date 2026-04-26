@@ -93,9 +93,9 @@ services:
       SPRING_PROFILES_ACTIVE: compose
     depends_on:
       - eureka
-      - price-service
-      - product-service
-      - store-service
+      - price_service
+      - product_service
+      - store_service
 
 volumes:
   pgdata:

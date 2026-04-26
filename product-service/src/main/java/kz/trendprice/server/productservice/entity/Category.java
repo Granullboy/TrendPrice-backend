@@ -17,7 +17,7 @@ import java.util.UUID;
                 @Index(name = "idx_order_categories_title", columnList = "title")
         }
 )
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor @ToString
+@Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor @ToString
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -2,6 +2,7 @@ package kz.trendprice.server.catalogbffservice.controller;
 
 import kz.trendprice.server.catalogbffservice.service.MainService;
 import kz.trendprice.server.catalogbffservice.view.ProductPriceViewWithCategory;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,14 +13,11 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/catalog")
 public class MainController {
 
     private final MainService mainService;
-
-    public MainController(MainService mainService) {
-        this.mainService = mainService;
-    }
 
     @GetMapping("/isAlive")
     public ResponseEntity<Mono<Map<String, String>>> isAlive() {

@@ -1,9 +1,13 @@
 rootProject.name = 'trendprice-server'
 
 includeBuild('eureka-service')
+includeBuild('user-service')
 includeBuild('store-service')
 includeBuild('product-service')
 includeBuild('price-service')
+includeBuild('receipt-service')
 includeBuild('parser-service')
 includeBuild('catalog-bff-service')
 includeBuild('apigateway-service')
+includeBuild('security-starter')
+
