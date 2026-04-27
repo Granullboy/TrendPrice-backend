@@ -46,6 +46,10 @@ public class PriceService {
         return bestPrice;
     }
 
+    public List<Price> createPrices(List<Price> prices) {
+        return priceRepository.saveAll(prices);
+    }
+
     public Price createPrice(Price price) {
         return priceRepository.save(price);
     }

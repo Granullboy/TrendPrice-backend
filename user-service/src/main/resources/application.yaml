@@ -8,8 +8,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: ${EMAIL_USERNAME}
-    password: ${EMAIL_PASSWORD}
+    username: trendprice.kz@gmail.com #${EMAIL_USERNAME}
+    password: cnuncmsrhnkrvbxi #${EMAIL_PASSWORD}
     properties:
       mail:
         smtp:
@@ -35,14 +35,14 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 jwt:
-  secret: ${JWT_SECRET}
+  secret: AbobaSecret #${JWT_SECRET}
   expiration-ms: 86400000
 
 app:
-  base-url: ${APP_BASE_URL}
+  base-url: http://localhost:5174 #${APP_BASE_URL}
   admin:
-    username: ${ADMIN_USERNAME}
-    email: ${ADMIN_EMAIL}
-    password: ${ADMIN_PASSWORD}
+    username: admin #${ADMIN_USERNAME}
+    email: trendprice.kz@gmail.com #${ADMIN_EMAIL}
+    password: Admin123 #${ADMIN_PASSWORD}
     create-on-startup: true
 

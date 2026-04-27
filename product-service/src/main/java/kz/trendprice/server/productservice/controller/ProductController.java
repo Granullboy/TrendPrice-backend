@@ -50,6 +50,12 @@ public class ProductController {
         }
     }
 
+    @PostMapping("/massCreate")
+    public ResponseEntity<List<Product>> createProducts(@RequestBody List<Product> products) {
+        List<Product> createdProducts = productService.createProducts(products);
+        return (!createdProducts.isEmpty()) ? ResponseEntity.ok(createdProducts) : ResponseEntity.internalServerError().build();
+    }
+
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
         Product createdProduct = productService.createProduct(product);

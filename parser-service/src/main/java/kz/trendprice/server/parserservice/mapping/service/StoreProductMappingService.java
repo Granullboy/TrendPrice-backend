@@ -21,8 +21,8 @@ public class StoreProductMappingService {
         return storeProductMappingRepository.findById(storeProductMappingId).orElse(null);
     }
 
-    public StoreProductMapping getStoreProductMappingByStoreIdAndProductId(UUID storeId, UUID productId) {
-        return storeProductMappingRepository.findByStoreIdAndAndExternalProductId(storeId, productId);
+    public StoreProductMapping getStoreProductMappingByStoreIdAndProductId(UUID storeId, String productId) {
+        return storeProductMappingRepository.findByStoreIdAndExternalProductId(storeId, productId);
     }
 
     public StoreProductMapping saveStoreProductMapping(StoreProductMapping storeProductMapping) {

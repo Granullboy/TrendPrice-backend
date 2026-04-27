@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.UUID;
 
 public interface StoreProductMappingRepository extends JpaRepository<StoreProductMapping, Long> {
-    public StoreProductMapping findByStoreIdAndAndExternalProductId(UUID storeId, UUID externalProductId);
+    StoreProductMapping findByStoreIdAndExternalProductId(UUID storeId, String externalProductId);
 }

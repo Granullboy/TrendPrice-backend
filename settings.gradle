@@ -9,5 +9,6 @@ includeBuild('receipt-service')
 includeBuild('parser-service')
 includeBuild('catalog-bff-service')
 includeBuild('apigateway-service')
+includeBuild('purchase-service')
 includeBuild('security-starter')
 

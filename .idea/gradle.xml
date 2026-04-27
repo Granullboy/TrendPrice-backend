@@ -37,6 +37,11 @@
                   <project path="$PROJECT_DIR$/product-service" />
                 </projects>
               </build>
+              <build path="$PROJECT_DIR$/purchase-service" name="purchase-service">
+                <projects>
+                  <project path="$PROJECT_DIR$/purchase-service" />
+                </projects>
+              </build>
               <build path="$PROJECT_DIR$/receipt-service" name="receipt-service">
                 <projects>
                   <project path="$PROJECT_DIR$/receipt-service" />
@@ -71,6 +76,7 @@
             <option value="$PROJECT_DIR$/parser-service" />
             <option value="$PROJECT_DIR$/price-service" />
             <option value="$PROJECT_DIR$/product-service" />
+            <option value="$PROJECT_DIR$/purchase-service" />
             <option value="$PROJECT_DIR$/receipt-service" />
             <option value="$PROJECT_DIR$/security-starter" />
             <option value="$PROJECT_DIR$/store-service" />

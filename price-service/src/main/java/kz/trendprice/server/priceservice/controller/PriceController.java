@@ -68,6 +68,12 @@ public class PriceController {
         return (price != null) ? ResponseEntity.ok(price) : ResponseEntity.notFound().build();
     }
 
+    @PostMapping("/massCreate")
+    public ResponseEntity<List<Price>> createPrices(@RequestBody List<Price> prices) {
+        List<Price> addedPrices = priceService.createPrices(prices);
+        return (!addedPrices.isEmpty()) ? ResponseEntity.ok(addedPrices) : (ResponseEntity<List<Price>>) ResponseEntity.internalServerError();
+    }
+
     @PostMapping
     public ResponseEntity<Price> createPrice(@RequestBody Price price) {
         Price newPrice = priceService.createPrice(price);

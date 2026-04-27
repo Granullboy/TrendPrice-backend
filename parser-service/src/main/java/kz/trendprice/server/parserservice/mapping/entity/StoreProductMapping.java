@@ -21,7 +21,7 @@ public class StoreProductMapping {
     private UUID storeId;
 
     @Column(name = "external_product_id")
-    private UUID externalProductId ;
+    private String externalProductId ;
 
     @Column(name = "product_id")
     private UUID productId;

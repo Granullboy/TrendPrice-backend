@@ -4,19 +4,19 @@ server:
 
 spring:
   application:
-    name: parser-service
+    name: receipt-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/parser_service
+    url: jdbc:postgresql://localhost:5432/receipt_service
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
-        format_sql: false
+        format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
 eureka:
@@ -24,12 +24,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
-parser:
-  magnum:
-    url: ${MAGNUM_URL}
-    file-name: "magnum_products"
-    store-title: "Magnum"
-    city: "Almaty"
-    folder: "storage/static"
-    cron: ${CRON}
-    zone: "Asia/Almaty"
+jwt:
+  secret: ${JWT_SECRET}
